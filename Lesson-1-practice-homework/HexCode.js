@@ -1,11 +1,11 @@
 function getCode(c) {
-
 	var hexNum = '#';
 	if (c == 3 || c == 6) {
-		for (var i = 0; i < c; i++) {
-			hexNum += (Math.floor(Math.random()*15).toString(16));
-		} 
-	}  else { hexNum = "Ain't No color with this base." };
+		hexNum += Math.random().toString(16).substr(2, c);
+	}  
+    else { 
+        hexNum = "Ain't No color with this base."; 
+    };
     return hexNum;
 }
 getCode(3);
