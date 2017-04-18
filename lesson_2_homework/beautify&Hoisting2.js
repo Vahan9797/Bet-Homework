@@ -44,10 +44,10 @@
         define(function() {
             return datediff;
         });
-    }   else if (typeof module === "object" && module.exports) {
-            module.exports = datediff;
-        }   else {
-                global.datediff = datediff;
-            }
+    } else if (typeof module === "object" && module.exports) {
+          module.exports = datediff;
+      } else {
+            global.datediff = datediff;
+        }
 
 })(this);
