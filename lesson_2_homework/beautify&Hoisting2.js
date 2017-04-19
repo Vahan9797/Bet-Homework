@@ -1,11 +1,8 @@
 (function(global) {
     function datediff(fromDate, toDate) {
         var startDate, now, toDate, diff, date, years, months, 
-        days, hours, minutes, seconds, diffDate;
-        if (!fromDate) { 
-            throw new Error('Date should be specified');
-        };
-            
+            days, hours, minutes, seconds, diffDate;
+
             startDate = new Date(1970, 0, 1, 0).getTime();
             now = new Date();
             toDate = toDate && toDate instanceof Date ? toDate : now;
@@ -25,7 +22,10 @@
                 minutes: 0,
                 seconds: 0
             };
-            
+
+        if (!fromDate) { 
+            throw new Error('Date should be specified');
+        };
         if (years < 0) {
            return diffDate;
         };
@@ -44,10 +44,10 @@
         define(function() {
             return datediff;
         });
-    } else if (typeof module === "object" && module.exports) {
-          module.exports = datediff;
-      } else {
-            global.datediff = datediff;
-        }
+    }   else if (typeof module === "object" && module.exports) {
+            module.exports = datediff;
+        }   else {
+                global.datediff = datediff;
+            }
 
 })(this);
