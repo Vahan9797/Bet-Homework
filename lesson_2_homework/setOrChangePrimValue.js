@@ -1,12 +1,12 @@
 (function() {
     window.setPrimitive = function setPrimVal(a, primVal) {
+        var p = primVal;
         var valueOf = function () {
-                return primVal;
+                return p;
             };
         a.valueOf = valueOf;
+        window.changePrimitive = function changePrimVal(a, newPrimVal) {
+            p = newPrimVal;
+        }
     };
-    window.changePrimitive = function changePrimVal(a, newPrimVal) {
-        setPrimitive(a, newPrimVal);
-    }
-
 })();
