@@ -16,12 +16,12 @@ function getGUID() {
 			c = 100
 		};
 	for (var i = 0; i < c; i++) {
-				myGUID += getCodeChunks(2) + '-' + getCodeChunks() + '-' + getCodeChunks() + 
-				'-' + getCodeChunks() + getCodeChunks(3);
-				document.getElementById('textareaID').value += myGUID + '\n';
-				myGUID = '';
-			}
-		}  
-	}
+		myGUID += getCodeChunks(2) + '-' + getCodeChunks() + '-' + getCodeChunks() + 
+		'-' + getCodeChunks() + getCodeChunks(3);
+		document.getElementById('textareaID').value += myGUID + '\n';
+		myGUID = '';
+		}
+	}  
+}
 
 
