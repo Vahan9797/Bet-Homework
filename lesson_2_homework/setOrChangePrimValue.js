@@ -3,12 +3,13 @@
         var valueOf = function () {
                 return this[prop];
             };
+
     window.setPrimitive = function setPrimVal(a, primVal) {
         a[prop] = primVal;
         a.valueOf = valueOf;
+    };
 
-        window.changePrimitive = function changePrimVal(a, newPrimVal) {
+    window.changePrimitive = function changePrimVal(a, newPrimVal) {
             a[prop] = newPrimVal;
         };
-    };
 })();
