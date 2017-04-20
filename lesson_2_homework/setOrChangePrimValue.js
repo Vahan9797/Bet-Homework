@@ -11,5 +11,5 @@
 
     window.changePrimitive = function changePrimVal(a, newPrimVal) {
             a[prop] = newPrimVal;
-        };
+    };
 })();
