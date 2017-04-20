@@ -1,12 +1,14 @@
 (function() {
-    window.setPrimitive = function setPrimVal(a, primVal) {
-        var p = primVal;
+    var prop = "Symbol(PrimitiveValue)" + Date.now();
         var valueOf = function () {
-                return p;
+                return this[prop];
             };
+    window.setPrimitive = function setPrimVal(a, primVal) {
+        a[prop] = primVal;
         a.valueOf = valueOf;
+
         window.changePrimitive = function changePrimVal(a, newPrimVal) {
-            p = newPrimVal;
-        }
+            a[prop] = newPrimVal;
+        };
     };
 })();
