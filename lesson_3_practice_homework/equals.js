@@ -12,29 +12,23 @@ function equals(a, b) {
     };
 
     for (var key in a) {
+         if (b.hasOwnProperty(key) && !a.hasOwnProperty(key) || a.hasOwnProperty(key) && !b.hasOwnProperty(key)) {
+            return false;
+        }
+        
         if (!a.hasOwnProperty(key)) {
             continue; 
-        };
-
-        if (!b.hasOwnProperty(key)) {
-            return false;
         };
 
         if (a[key] === b[key]) {
             continue;
         };
 
-        if (typeof a[key] !== 'object') {
+        if (typeof a[key] !== 'object' || typeof b[key] !== 'object') {
             return false;
         };
 
         if (!equals(a[key], b[key])) {
-            return false;
-        }
-    };
-
-    for (key in b) {
-        if (b.hasOwnProperty(key) && !a.hasOwnProperty(key)) {
             return false;
         }
     };
