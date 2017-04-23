@@ -1,16 +1,11 @@
 function indexOf(arr, item) {
-    var  res, i = 0;
     if (!arr.includes(item)) {
-        res = -1;
+        return -1;
     } else {
-        while (i < arr.length) {
+        for (var i = 0; i < arr.length; i++) {
             if (arr[i] === item) {
-                res = i;
-                break;
-            } else {
-                i++;
-            };
+                return i;
+            } 
         }
-    };
-    return res;
+    }
 };
