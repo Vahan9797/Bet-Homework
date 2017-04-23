@@ -1,21 +1,11 @@
 function lastIndexOf(arr, item) {
-    arr.reverse();
-    return arr.length - indexOf(arr, item) - 1;
-
-    function indexOf(arr, item) {
-        var  res, i = 0;
-        if (!arr.includes(item)) {
-            res = -1;
-        } else {
-            while (i < arr.length) {
-                if (arr[i] === item) {
-                    res = i;
-                    break;
-                } else {
-                    i++;
-                };
+    if (!arr.includes(item)) {
+        return -1;
+    } else {
+        for (var i = arr.length - 1; i >= 0; i--) {
+            if (arr[i] === item) {
+                return i;
             }
-        };
-    return res;
-    };
+        }
+    }
 };
