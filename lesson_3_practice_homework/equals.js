@@ -33,7 +33,7 @@ function equals(a, b) {
         }
     };
 
-    for (key in y) {
+    for (key in b) {
         if (b.hasOwnProperty(key) && !a.hasOwnProperty(key)) {
             return false;
         }
