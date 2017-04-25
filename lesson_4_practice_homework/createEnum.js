@@ -7,9 +7,11 @@
             if (arr[i].__proto__ === Object.prototype) {
                 Object.defineProperty(en, arr[i].name, {
                         enumerable: true,
-                        value: (arr[i].value < v) ? v : arr[i].value
+                        value: (arr[i].value === v) ? v++ : arr[i].value
                 });
-                v = en[arr[i].name] + 1;
+				if (arr[i].value > v) {
+                	v = en[arr[i].name] + 1;
+                }
 
             } else {
                 Object.defineProperty(en, arr[i], {
