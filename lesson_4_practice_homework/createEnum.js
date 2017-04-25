@@ -9,7 +9,7 @@
                         enumerable: true,
                         value: (arr[i].value === v) ? v++ : arr[i].value
                 });
-				if (arr[i].value > v) {
+		if (arr[i].value > v) {
                 	v = en[arr[i].name] + 1;
                 }
 
