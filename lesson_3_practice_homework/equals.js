@@ -1,36 +1,30 @@
-function equals(a, b) {
-    if (a === b) {
+(function () {
+    'use strict';
+
+    function isObject(a) {
+        return a && typeof a === "object";
+    };
+
+    function includes(a, b) {
+        for (var i in a) {
+            if (!equals(a[i], b[i])) {
+                return false;
+            };
+        }
         return true;
-    };
+    }
 
-    if (!(a instanceof Object) || !(b instanceof Object)) {
-        return false;
-    };
-
-    if (a.constructor !== b.constructor) {
-        return false;
-    };
-
-    for (var key in a) {
-         if (b.hasOwnProperty(key) && !a.hasOwnProperty(key) || a.hasOwnProperty(key) && !b.hasOwnProperty(key)) {
-            return false;
-        }
-        
-        if (!a.hasOwnProperty(key)) {
-            continue; 
+    function equals(a, b) {
+        if (a === b) {
+            return true;
         };
 
-        if (a[key] === b[key]) {
-            continue;
-        };
-
-        if (typeof a[key] !== 'object' || typeof b[key] !== 'object') {
+        if (!isObject(a) || !isObject(b)) {
             return false;
         };
 
-        if (!equals(a[key], b[key])) {
-            return false;
-        }
+        return includes(a, b) && includes(b, a);
     };
-    return true;
-};
+
+    window.equals = equals;
+})();
