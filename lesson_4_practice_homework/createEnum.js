@@ -6,8 +6,8 @@
         for (var i = 0; i < arr.length; i++) {
             if (arr[i].__proto__ === Object.prototype) {
                 Object.defineProperty(en, arr[i].name, {
-                        enumerable: true,
-                        value: (arr[i].value === v) ? v++ : arr[i].value
+                    enumerable: true,
+                    value: (arr[i].value < 0) ? 0 : (arr[i].value === v) ? v++ : arr[i].value
                 });
 		        if (arr[i].value > v) {
                     v = en[arr[i].name] + 1;
