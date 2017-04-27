@@ -2,7 +2,7 @@
     'use strict';
 
     function isArray(arr) { 
-        return arr === this || arr.__proto__ === this.prototype; 
+        return !!arr && arr.__proto__ === Array.prototype; 
     };
 
     window.Array.isArray = isArray;

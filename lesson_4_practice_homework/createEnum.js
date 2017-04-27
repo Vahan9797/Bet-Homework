@@ -9,16 +9,15 @@
                         enumerable: true,
                         value: (arr[i].value === v) ? v++ : arr[i].value
                 });
-		if (arr[i].value > v) {
-                	v = en[arr[i].name] + 1;
+		        if (arr[i].value > v) {
+                    v = en[arr[i].name] + 1;
                 }
 
             } else {
                 Object.defineProperty(en, arr[i], {
                     enumerable: true,
-                    value: v
+                    value: v++
                 });
-                ++v;
             }
         }
 
