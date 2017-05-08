@@ -1,15 +1,9 @@
-(function () {
+!function () {
     'use strict';
 
     function instanceOf(a, b) {
-        if (a === null) {
-            return false;
-        } else if (a.__proto__ !== b.prototype) {
-            return instanceOf(a.__proto__, b);
-        } else {
-            return true;
-        }
+        return (a === null) ? false : (a.__proto__ !== b.prototype) ? instanceOf(a.__proto__, b) : true;
     };
 
     window.instanceOf = instanceOf;
-})();
+}();
