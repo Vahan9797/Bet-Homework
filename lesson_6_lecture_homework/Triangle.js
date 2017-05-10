@@ -28,7 +28,7 @@
         if(arguments.length === 2) {
             this.x = arguments[0];
             this.y = arguments[1];
-        } else if (arguments[0] instanceof Array) {
+        } else if (arguments[0] instanceof Array && arguments[0].length === 2) {
             this.y = arguments[0][0];
             this.x = arguments[0][1];
         } else {
