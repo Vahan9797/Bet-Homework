@@ -1,5 +1,5 @@
 function add(a, b) {
-	return parseFloat(a) + parseFloat(b);
+	return +a + +b;
 }
 
 add(4, '5');
