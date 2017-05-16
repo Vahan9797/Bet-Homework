@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>1st Project</title>
+        <!-- <script src="index.js" type="text/javascript"></script> -->
+    </head>
+
+    <body>
+        <h1>My TODO List</h1>
+        <input id="new_task" type="text" oninput="myMethods.searchByInput()"><button onclick="l.addToDoItem()">Add</button> <br> <br>
+        <label><input type="radio" id="rad1" name="rad" onclick="myMethods.sortByCompleteness(1)" value="All" checked> All</label>
+        <label><input type="radio" id="rad2" name="rad" onclick="myMethods.sortByCompleteness(2)" value="Completed"> Completed</label>
+        <label><input type="radio" id="rad3" name="rad" onclick="myMethods.sortByCompleteness(3)" value="Non-completed"> Non-completed</label>
+        <ul id="todo_list">
+<!--        <li><input type="checkbox" name="chck1"> Task 1 <a href="">X</a></li>
+            <li><input type="checkbox" name="chck2"> Task 2 <a href="">X</a></li>
+            <li><input type="checkbox" name="chck3"> Task 3 <a href="">X</a></li>
+ -->    </ul>
+        <div id = 'Count'>All tasks: 0 Completed: 0</div>
+        <script src="index.js" type="text/javascript"></script>
+    </body>
+</html>
