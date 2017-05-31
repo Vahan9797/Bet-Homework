@@ -6,7 +6,7 @@
 
     <body>
         <h1>My TODO List</h1>
-        <input id="new_task" type="text" oninput="myMethods.searchByInput()"><button onclick="l.addToDoItem()">Add</button> <br> <br>
+        <input id="new_task" type="text" onkeydown="myMethods.searchByInput()"><button onclick="l.addToDoItem()">Add</button> <br> <br>
         <label><input type="radio" id="rad1" name="rad" onclick="myMethods.sortByCompleteness(1)" value="All" checked> All</label>
         <label><input type="radio" id="rad2" name="rad" onclick="myMethods.sortByCompleteness(2)" value="Completed"> Completed</label>
         <label><input type="radio" id="rad3" name="rad" onclick="myMethods.sortByCompleteness(3)" value="Non-completed"> Non-completed</label>

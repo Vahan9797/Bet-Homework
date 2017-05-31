@@ -100,14 +100,13 @@
             renderList(l);
         }
     }
-/*          NOT WORKING
+
     window.myMethods.searchByInput = function() {
-        if (l._list.length > 0) {
+        if (l._list.length) {
             searchList._list = l._list.filter(function(v) {
                 return v._title.indexOf(document.getElementById('new_task').value) !== -1;
             });
             renderList(searchList);
         }
     }
-*/
 }();
