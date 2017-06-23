@@ -11,7 +11,7 @@ TodoView.prototype.render = function(data) {
     var $list, $input, self = this;
 
     this.$container.html(
-        '<span><input class="new-task" type="text" placeholder="Search...">' +
+        '<span><input class="new-task" type="text" placeholder="Add some tasks...">' +
         '<button class="add-item">Add</button></span> <br> <br>' +
         '<label><input type="radio" id="rad1" name="rad" value="All" checked> All</label>' +
         '<label><input type="radio" id="rad2" name="rad" value="Completed"> Completed</label>' +
