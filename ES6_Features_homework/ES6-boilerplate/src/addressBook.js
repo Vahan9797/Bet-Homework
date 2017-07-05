@@ -42,7 +42,6 @@ class AddressBook {
             configurable: true,
             value: addressList
         });
-        Reflect.setPrototypeOf(this.addressList, null);
     }
 
     pushNewPersonInfo(/*multiple Info*/) {
