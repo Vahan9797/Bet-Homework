@@ -19,9 +19,11 @@ class AddressBook extends Component {
     }
 
     render() {
+        let onDelete = this.state.onDelete;
+        this.state.onDelete = false;
         return (
             <div>
-            {!this.state.onDelete ? this.state.addressList = this.state.addressList.concat(
+            {!onDelete ? this.state.addressList = this.state.addressList.concat(
                 <p> {new AddressBookItem(...this.props.contacts).getInfo} 
                 <button onClick = {() => this.deleteContact(this.totalContacts)}>Delete</button></p>
             ) : this.state.addressList}
