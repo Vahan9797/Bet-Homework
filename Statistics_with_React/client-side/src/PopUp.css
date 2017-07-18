@@ -1,0 +1,36 @@
+.PopUp {
+    text-align: center;
+    position: absolute;
+    border: 2px ridge #0f0f0f;
+    width: 230px;
+    height: 200px;
+    background-color: #fff;
+    left: auto;
+    bottom: 150px;
+}
+
+li {
+    list-style: none;
+}
+
+.stat-container {
+    padding: 0;
+    text-align: center;
+    width: 230px;
+    height: 170px;
+    overflow: auto;
+}
+
+button {
+    background-color: #fed;
+    width: 115px;
+    text-align: center;
+}
+
+.list-view-btn {
+    float: left;
+}
+
+.chart-view-btn {
+    float: right;
+}
