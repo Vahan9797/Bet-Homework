@@ -1,0 +1,12 @@
+.Tweet {
+    display: flex;
+    margin: 5px;
+    border: 1px solid #55e;
+    border-radius: 5%;
+    flex-direction: column;
+}
+
+.text-container {
+    padding: 10px;
+    font-size: 16px;
+}
