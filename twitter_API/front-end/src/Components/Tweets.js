@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import WebSocket from 'react-websocket';
-import './Tweets.css';
-import Filtertweets from './FilterTweets';
+import './styles/Tweets.css';
+import FilterTweets from './FilterTweets';
+import SearchByTweet from './SearchByTweet';
 
 class Tweets extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tweetArray: []
+      tweetArray: [],
+      selectedTweet: undefined
     }
   }
 
@@ -24,11 +26,11 @@ class Tweets extends Component {
   render() {
     return (
       <div className='Tweets'>
-        Total Tweets: <strong>{this.state.tweetArray.length}</strong>
-
         <WebSocket url='ws://localhost:3070' 
             onMessage={this.handleData.bind(this)}/>
-        <Filtertweets tweets={this.state.tweetArray}/>
+        <FilterTweets tweets={this.state.tweetArray} onSelect={tweet => this.setState({selectedTweet: tweet})}/>
+        <SearchByTweet tweet={this.state.selectedTweet}/>
+        {this.state.selectedTweet && this.setState({selectedTweet: undefined})}
       </div>
     );
   }

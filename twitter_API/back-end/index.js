@@ -19,14 +19,14 @@ const Server = require('simple-websocket/server');
 
 const server = new Server({ port: 3070 }); // see `ws` docs for other options
 
-const startServer = () => {
+module.exports = startServer = () => {
   server
     .on('connection', socket => {
     /*  socket.on('data', function (data) {})
       socket.on('close', function () {})
       socket.on('error', function (err) {})*/
 
-      const stream = client.stream('statuses/filter', {track: 'sport'});
+      const stream = client.stream('statuses/filter', {track: 'politics,war,elections'});
 
       stream.on('data', event => {
           socket.send(JSON.stringify(event));
@@ -34,7 +34,7 @@ const startServer = () => {
       });
 
       stream.on('error', error => {
-        setTimeout(startServer, 3000);
+        console.log(error);
       })
     })
 }

@@ -1,14 +1,19 @@
 .FilterTweets {
     display: flex;
-    position: fixed;
     flex-direction: column;
     border: 3px ridge #0f0f0f;
-    margin-top: 15px;
-    margin-left: 25%;
-    margin-right: 25%;
+    margin-top: 25px;
+    margin-left: 2%;
+    margin-right: 5%;
     padding: 5px;
-    height: 50%;
+    height: 80%;
     width: 50%;
+}
+
+.total-tweets {
+    width: 100%;
+    align-content: center;
+    flex-shrink: 1;
 }
 
 .input-filter {

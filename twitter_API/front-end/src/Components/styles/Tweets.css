@@ -1,0 +1,10 @@
+.Tweets {
+    text-align: center;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+}

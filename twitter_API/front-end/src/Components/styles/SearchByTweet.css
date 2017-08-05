@@ -1,0 +1,50 @@
+.SearchByTweet {
+    display: flex;
+    flex-direction: column;
+    border: 3px ridge #0f0f0f;
+    margin-top: 25px;
+    margin-left: 0;
+    margin-right: 5%;
+    padding: 5px;
+    height: 80%;
+    width: 50%;
+}
+
+.selected-tweets {
+    text-align: center;
+}
+
+.tweet-blocks {
+    display: flex;
+    overflow: auto;
+    flex-direction: column;
+    height: 45%;
+    margin: 2%;
+    padding: 2%;
+    border: 2px solid #333;
+}
+
+.tweet-block {
+    flex-shrink: 1;
+    align-content: center;
+}
+
+.tweet-block > button {
+    background-color: #e55;
+}
+
+.news-found {
+    text-align: center;
+    color: #e55;
+}
+
+.search-results {
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+    margin: 2%;
+    padding: 2%;
+    border: 2px ridge #333;
+    box-sizing: border-box;
+    overflow: auto;
+}

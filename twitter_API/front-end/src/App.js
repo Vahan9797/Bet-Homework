@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 //import logo from './logo.svg';
-import Tweets from './Tweets';
+import Tweets from './Components/Tweets';
 import './App.css';
 
 class App extends Component {
