@@ -1,0 +1,25 @@
+.TokenInput {
+    display: flex;
+    position: fixed;
+    width: 50%;
+    height: 25%;
+    margin: 10% 25% 50% 25%;
+    padding: 15px;
+    border: 3px ridge #0f0f0f;
+    border-radius: 5%;
+    background: #eee;
+    flex-direction: column;
+}
+
+.input-desc {
+    text-align: center;
+}
+
+input:focus {
+    background-color: #ddf;
+    font-weight: bold;
+}
+
+button {
+    background-color: #5e5;
+}

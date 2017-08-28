@@ -3,22 +3,22 @@ import './styles/SearchByTweet.css';
 import Tweet from './Tweet';
 import News from './News';
 
+const NEWS_API_KEYS =  {
+  key1: '3fd0c983ae294ebbb8faf2fe367de704',
+  key2: '2a16157d1ccd4725948237cc7d8e066d'
+};
+
 class SearchByTweet extends Component {
   constructor(props) {
     super(props);
     this.state = {
       selectedTweets: [],
       newsFound: []
-    };
-
-    Reflect.defineProperty(this, 'NEWS_API_KEYS', {
-      value: { key1: '3fd0c983ae294ebbb8faf2fe367de704', key2: '2a16157d1ccd4725948237cc7d8e066d' }
-    });
+    }
   }
 
   componentWillReceiveProps(nextProps) {
-    nextProps.tweet && this.state.selectedTweets.unshift(nextProps.tweet);
-    this.setState({
+    nextProps.tweet && this.state.selectedTweets.unshift(nextProps.tweet) && this.setState({
       selectedTweets: this.state.selectedTweets.slice()
     });
   }
@@ -30,7 +30,7 @@ class SearchByTweet extends Component {
 
     fetch(`https://api.cognitive.microsoft.com/bing/v5.0/news/search?q=${formattedText}&mkt=en-us`, {
       headers: {
-        'Ocp-Apim-Subscription-Key': this.NEWS_API_KEYS.key1,
+        'Ocp-Apim-Subscription-Key': NEWS_API_KEYS.key1,
         'Host': 'api.cognitive.microsoft.com'
       }
     })
@@ -62,9 +62,11 @@ class SearchByTweet extends Component {
                   text={tweet.text}
                   onClick={tweet => console.log(tweet)}/>
 
-                <button onClick={ev => this.searchForNews(tweet.text) && ev.stopPropagation()}
+                <button onClick={() => this.searchForNews(tweet.text)}
                   >Search News about this tweet</button>
-                <button onClick={ev => this.onDelete(index) && ev.stopPropagation()}>Remove from list</button>
+                <button 
+                  className = 'remove-btn'
+                  onClick={() => this.onDelete(index)}>Remove from list</button>
               </div>
             )
           })}

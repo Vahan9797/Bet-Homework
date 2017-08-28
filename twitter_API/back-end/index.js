@@ -16,27 +16,44 @@ const client = new Twitter({
 });
 
 const Server = require('simple-websocket/server');
-
 const server = new Server({ port: 3070 }); // see `ws` docs for other options
 
-module.exports = startServer = () => {
-  server
-    .on('connection', socket => {
-    /*  socket.on('data', function (data) {})
-      socket.on('close', function () {})
-      socket.on('error', function (err) {})*/
+let socket;
 
-      const stream = client.stream('statuses/filter', {track: 'politics,war,elections'});
+server.on('connection', s => {
+  socket = s;
+  s.on('close', () => socket = null);
+});
 
-      stream.on('data', event => {
-          socket.send(JSON.stringify(event));
-          console.log(event && event.text);
-      });
+let stream;
 
-      stream.on('error', error => {
-        console.log(error);
-      })
-    })
-}
+app.post('/category/:trackingToken', (req, res) => {
+  try {
+    stream && stream.destroy();
+  } catch (e) {
+    throw e;
+  }
 
-startServer();
+  if (req.params.trackingToken) {
+    stream = client.stream('statuses/filter', {
+      track: req.params.trackingToken
+    });
+
+    stream.on('data', event => {
+      socket && socket.send(JSON.stringify({
+        author: event.user.name,
+        username: event.user.screen_name,
+        text: event.text
+      }));
+    });
+
+    stream.on('error', error => {
+      console.log(error);
+    });
+
+  }
+});
+
+app.listen(8888, () => console.log('Server started at port 8888.'));
+
+// make multi-Client support

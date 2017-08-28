@@ -22,16 +22,14 @@ class FilterTweets extends Component {
 
   render() {
     let searchInput = '';
-    let selectedTweet;
     const filteredArray = this.state.tweetArray.filter(tweet => tweet.text.includes(this.state.filterByKeyWord));
     return (
-      <div className='FilterTweets' onClick={() => this.props.onSelect(selectedTweet)}>
+      <div className='FilterTweets'>
         <span className='total-tweets'>Total Tweets: <strong>{this.state.tweetArray.length}</strong></span>
         <input type='search'
           className='input-filter'
           placeholder='Search for specific tweets...'
-          ref={input => searchInput = input}
-          onClick={ev => ev.stopPropagation()}/>
+          ref={input => searchInput = input}/>
 
         <button onClick={ev => {
           this.setState({filterByKeyWord: searchInput.value, showTweets: 50});
@@ -41,14 +39,14 @@ class FilterTweets extends Component {
           {!!this.state.filterByKeyWord && <p>Tweets found: <strong>{filteredArray.length}</strong></p>}
 
           {this.showMaxTweets(filteredArray).map((tweet, index) => {
-            return (<Tweet author={tweet.user.name}
-              username={tweet.user.screen_name}
+            return (<Tweet author={tweet.author}
+              username={tweet.username}
               text={tweet.text}
-              onClick={thisTweet => selectedTweet = thisTweet}/>)
+              onClick={thisTweet => this.props.onSelect(thisTweet)}/>)
           })}
 
           {this.showMaxTweets(filteredArray).length === this.state.showTweets && <button onClick={ev => {
-            this.setState({showTweets: this.state.showTweets + 50}) && ev.stopPropagation();
+            this.setState({showTweets: this.state.showTweets + 50});
           }}>Show more...</button>}
         </div>
 
@@ -59,5 +57,3 @@ class FilterTweets extends Component {
 
 
 export default FilterTweets;
-
-// Google Custom Search API Key === AIzaSyBxcI1JFiYrfUidyCkjnuBXdfz68pRqMVY

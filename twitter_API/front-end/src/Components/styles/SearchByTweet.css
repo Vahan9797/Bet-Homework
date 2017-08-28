@@ -30,7 +30,13 @@
 }
 
 .tweet-block > button {
-    background-color: #e55;
+    background-color: #5e5;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.tweet-block > .remove-btn {
+    background-color: #f00;
 }
 
 .news-found {
@@ -39,12 +45,10 @@
 }
 
 .search-results {
-    display: flex;
-    flex-direction: column;
+    display: inline-block;
     height: 50%;
+    overflow: auto;
     margin: 2%;
     padding: 2%;
     border: 2px ridge #333;
-    box-sizing: border-box;
-    overflow: auto;
 }

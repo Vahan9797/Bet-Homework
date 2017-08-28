@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './styles/Tweet.css';
+import entities from 'entities';
 
 const editText = str => {
   if (str[0] === '@') {
@@ -31,11 +32,19 @@ class Tweet extends Component {
     }
   }
 
+  componentWillMount() {
+    this.setState({
+      author: this.props.author,
+      username: this.props.username,
+      text: entities.decodeHTML(this.props.text)
+    })
+  }
+
   componentWillReceiveProps(nextProps) {
     this.setState({
       author: nextProps.author,
       username: nextProps.username,
-      text: nextProps.text
+      text: entities.decodeHTML(nextProps.text)
     })
   }
 
@@ -44,9 +53,11 @@ class Tweet extends Component {
       <div className='Tweet' onClick={() => this.props.onClick(this.state)}>
 
         <p>Written by <b>{this.state.author}</b> with username:&nbsp;
-        <a href={'https://twitter.com/' + this.state.username}
-          target='_blank' 
-          onClick={ev => ev.stopPropagation()}>@{this.state.username}</a></p>
+          <a href={'https://twitter.com/' + this.state.username}
+            target='_blank'
+            onClick={ev => ev.stopPropagation()}>@{this.state.username}
+          </a>
+        </p>
 
         <p className='text-container'>
           {this.state.text.split(' ').map(str => editText(str))}

@@ -1,35 +1,36 @@
 .News {
     display: flex;
     flex-direction: row;
-    box-sizing: border-box;
-    border: 2px ridge #55e;
+    border: 2px ridge #5e5;
     padding: 5px;
-}
-
-img {
-    width: 50px;
-    height: 50px;
+    border-radius: 5%;
+    background: white;
 }
 
 .news-desc {
     display: flex;
-    width: 200px;
-    height: 100px;
     flex-direction: column;
+    overflow: auto;
+    width: 100%;
+    height: 75%;
     margin: 5px;
-    box-sizing: border-box;
 }
 
-.news-desc > a {
+.news-desc > p > a {
     font-size: 20px;
     font-weight: bold;
 }
 
 .news-desc > i {
     font-size: 12px;
-    color: silver;
+    color: #555;
 }
 
 .news-desc > small {
     color: #0f0;
 }
+
+.news-desc > small > u, small > b {
+    color: #e55;
+}
+
